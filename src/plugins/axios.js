@@ -4,7 +4,7 @@ let baseURL = 'https://script.google.com/macros/s/AKfycbyVLoAAQszf-Qt9ByktR1YCiD
 
 const instance = axios.create({
     baseURL: baseURL,
-    headers: { 'Content-Type': 'application/json' }
+    
 });
 
 export default {
@@ -12,5 +12,10 @@ export default {
         let url = `${baseURL}`
         url += action
         return instance.get(url)
+    },
+     postData(action,body) {
+        let url = `${baseURL}`
+        url += action
+        return instance.post(url,body)
     }
 }

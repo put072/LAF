@@ -1,84 +1,57 @@
 <template>
   <v-container>
-    <!-- <v-overlay v-model="loading">
-      <v-progress-circular indeterminate size="64"></v-progress-circular>
-    </v-overlay> -->
-  <v-row class="show">
-    <v-card v-for="(el,i) in laf" :key="i" class="mx-auto ma-4 col-12 pa-0" max-width="344">
-      <v-card-body>
-        <v-list-item-avatar
-          tile
-          width="80%"
-          size="120"
-          color="grey"
-          class="ml-9"
-        ></v-list-item-avatar>
-        <!-- <v-img>{{el.image}}</v-img>  --> <!-- ภาพ -->
-      </v-card-body>
+    <v-row class="show">
+      <v-card v-for="(el,i) in laf" :key="i" class="mx-auto ma-4 col-12 pa-0" max-width="344">
+        <v-img
+          height="250"
+          :src="el.image" 
+        ></v-img> 
 
-      <v-card-text>
-        <p class="text--primary">Name: <span class="ml-3">{{el.name}}</span></p>
-        <p class="text--primary">Charactor:<span class="ml-3">{{el.charactor}}</span></p>
-        <p class="text--primary">Tel. <span class="ml-3">{{el.tell}}</span></p>
-        <p class="text--primary">Informant: <span class="ml-3">{{el.informant}}</span></p>
-        <p class="text--primary">Location: <span class="ml-3">{{el.location_info}}</span></p>
-      </v-card-text>
+        <v-card-text>
+          <p class="text--primary">Name: <span class="ml-3">{{el.name}}</span></p>
+          <p class="text--primary">Charactor:<span class="ml-3">{{el.charactor}}</span></p>
+          <p class="text--primary">Tel. <span class="ml-3">{{el.tell}}</span></p>
+          <p class="text--primary">Informant: <span class="ml-3">{{el.informant}}</span></p>
+          <p class="text--primary">Location: <span class="ml-3">{{el.location_info}}</span></p>
+        </v-card-text>
 
-      <v-card-actions>
-        <v-btn class="done"
-          text
-          color="deep-purple accent-4"
-          @click="clickbtn"
-        >
-          Done
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-row>
+        <v-card-actions>
+          <v-btn
+            color="deep-purple accent-4"
+            dark
+            @click="clicked(el)"
+          >
+            Done
+          </v-btn>
+        </v-card-actions>
+      </v-card>
 
-  <!-- <v-row>
-      <v-card  v-for="(el,i) in laf" :key="i" class="mx-auto ma-4 col-12 pa-0" max-width="344">
-          <v-card-text>
-            <p class="font-weight-medium text--primary" >
-              Name: <span class="ml-3">{{el.name}}</span>
-            </p>
-            <p class="font-weight-medium text--primary">
-              charactor:
-              <br> 
-              <span>{{el.charactor}}</span>
-            </p>
-            <p class="font-weight-medium text--primary">
-              Tel. <span class="ml-3">{{el.tell}}</span>
-            </p>
-            <p class="font-weight-medium text--primary">
-              Informant: <span class="ml-3">{{el.informant}}</span>
-            </p>
-          </v-card-text>
-            
+      <v-dialog
+        v-model="dialog"
+        max-width="290"
+      >
+        <v-card>
+          <v-card-title class="headline">Are you sure{{ transformer }} </v-card-title>
           <v-card-actions>
-            <p class="font-weight-medium text--primary ml-3">
-              Location: <span>{{el.location_info}}</span>
-            </p>
-          </v-card-actions>
-            <v-list-item-avatar
-              tile
-              size="120"
-              color="grey"
-            ></v-list-item-avatar>
-            <br>
-            <br>
-            <br>
-          <v-card-actions>
-            <v-btn class="ml-5 mt-3"
-              dark
-              color="indigo darken-1"
+            <v-btn
+              color="green darken-1"
+              text
+              @click="clickbtn()" 
             >
-              Done
+              Yes
+            </v-btn>
+
+            <v-btn
+              color="green darken-1"
+              text
+              @click="dialog = false"
+            >
+              No
             </v-btn>
           </v-card-actions>
-
-      </v-card>
-    </v-row> -->
+        </v-card>
+      </v-dialog>
+    </v-row>
     
   </v-container>
 </template>
@@ -91,6 +64,9 @@ import axios from '../plugins/axios';
     data(){
       return {
         data: '',
+        image:[],
+        dialog: false,
+        transformer: ''
       }
     },
     
@@ -108,14 +84,22 @@ import axios from '../plugins/axios';
         })
         .catch(err => console.log(err))
       },
+
       clickbtn(){
-        axios({
-          method: 'post',
-          url: '/info/630903004',
-          data: {
-            done: '1',
-          }
-        });
+        let id = this.transformer
+        this.dialog = false
+        let json = {done:"1"}   
+          json["#"] = id
+          axios.postData(`?method=PUT&path=/update/${id}`,json)
+        .then(res=>{
+          console.log(res)
+        })
+        .catch(err => console.log(err))
+      },
+
+      clicked(c){
+        this.dialog = true
+        this.transformer = c["#"]
       }
     },
 
