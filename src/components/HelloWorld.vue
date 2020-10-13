@@ -1,7 +1,8 @@
 <template>
-  <v-container>
-    <v-row class="show">
-      <v-card v-for="(el,i) in laf" :key="i" class="mx-auto ma-4 col-12 pa-0" max-width="344">
+  <v-container> 
+    <v-row class="show"><!-- v-if="renderComponent" -->
+
+      <v-card v-for="(el,i) in data" :key="i" class="mx-auto ma-4 col-12 pa-0" max-width="344">
         <v-img
           height="250"
           :src="el.image" 
@@ -60,25 +61,25 @@
 import axios from '../plugins/axios';
   export default {
     name: '',
-    // loading: false,
+     
     data(){
       return {
-        data: '',
+        data: [],
         image:[],
         dialog: false,
-        transformer: ''
+        transformer: '',
+        // renderComponent: true,
+        // loading: false,
+        reload:true,
       }
     },
     
-    computed:{
-      laf(){
-        return this.data.items
-      },
+    computed:{ 
     },
 
     methods: {
       callapi(){
-         axios.getData(`?path=/info&query={"status":false}`) 
+         axios.getData(`/status/FALSE`)   
         .then(res=>{
           this.data = res.data
         })
@@ -89,17 +90,18 @@ import axios from '../plugins/axios';
         let id = this.transformer
         this.dialog = false
         let json = {done:"1"}   
-          json["#"] = id
-          axios.postData(`?method=PUT&path=/update/${id}`,json)
+          axios.patchData(`/tabs/updateTable/id/${id}`,json)
         .then(res=>{
           console.log(res)
+          window.location.reload()
         })
         .catch(err => console.log(err))
+        
       },
 
       clicked(c){
         this.dialog = true
-        this.transformer = c["#"]
+        this.transformer = c.id
       }
     },
 
