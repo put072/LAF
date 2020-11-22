@@ -12,7 +12,7 @@
         <v-card-text class="fon">
           <p class="text--primary">ชื่อ นานสกุล: <span class="ml-3">{{el.name}}</span></p>
           <p class="text--primary">ลักษณะ:<span class="ml-3">{{el.charactor}}</span></p>
-          <p class="text--primary">เบอร์โทรศัทพ์: <span class="ml-3">{{el.tell}}</span></p>
+          <p class="text--primary">เบอร์โทรศัพท์ <a :href="`tel:${el.tel}`" data-rel="external" target="_black"><span class="ml-3">{{el.tel}}</span></a></p>
           <p class="text--primary">ข้อมูลเพิ่มเติม: <span class="ml-3">{{el.informant}}</span></p>
           <p class="text--primary">จุดรับเรื่อง: <span class="ml-3">{{el.location_info}}</span></p>
         </v-card-text>
