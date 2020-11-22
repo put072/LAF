@@ -8,21 +8,21 @@
           :src="el.image" 
         ></v-img> 
 
-        <v-card-text>
-          <p class="text--primary">Name: <span class="ml-3">{{el.name}}</span></p>
-          <p class="text--primary">Charactor:<span class="ml-3">{{el.charactor}}</span></p>
-          <p class="text--primary">Tel. <span class="ml-3">{{el.tell}}</span></p>
-          <p class="text--primary">Informant: <span class="ml-3">{{el.informant}}</span></p>
-          <p class="text--primary">Location: <span class="ml-3">{{el.location_info}}</span></p>
+        <v-card-text class="fon">
+          <p class="text--primary">ชื่อ นานสกุล: <span class="ml-3">{{el.name}}</span></p>
+          <p class="text--primary">ลักษณะ:<span class="ml-3">{{el.charactor}}</span></p>
+          <p class="text--primary">เบอร์โทรศัทพ์: <span class="ml-3">{{el.tell}}</span></p>
+          <p class="text--primary">ข้อมูลเพิ่มเติม: <span class="ml-3">{{el.informant}}</span></p>
+          <p class="text--primary">จุดรับเรื่อง: <span class="ml-3">{{el.location_info}}</span></p>
         </v-card-text>
 
-        <v-card-actions>
+        <v-card-actions class="fon">
           <v-btn
-            color="deep-purple accent-4"
+            style="background:#ff97b7"
             dark
             @click="clicked(el)"
           >
-            Done
+            เสร็จ
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -31,15 +31,16 @@
         v-model="dialog"
         max-width="290"
       >
-        <v-card>
-          <v-card-title class="headline">Are you sure{{ transformer }} </v-card-title>
+        <v-card class="fon">
+          <v-card-title class="headline">ตามหา {{ transformer }} เจอเเล้ว</v-card-title>
           <v-card-actions>
             <v-btn
               color="green darken-1"
               text
-              @click="clickbtn()" 
+              @click="clickbtn()"
+              
             >
-              Yes
+              ใช่
             </v-btn>
 
             <v-btn
@@ -47,7 +48,7 @@
               text
               @click="dialog = false"
             >
-              No
+              ไม่ใช่
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -110,3 +111,10 @@ import axios from '../plugins/axios';
     }
   }
 </script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
+.fon {
+  font-family: 'Sarabun', sans-serif;
+  font-size: 1.5rem;
+}
+</style>

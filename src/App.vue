@@ -1,21 +1,21 @@
 <template>
-  <v-app style="background:#FFE0B6;">
+  <v-app style="background:#9bf6ff;">
     <v-app-bar
       app
-      color="#1a237e"
       dark
+      src="../src/assets/bgnb1.jpg"
     >
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
           class="shrink"
           contain
-          src="../src/assets/Logo2-01.png"
+          src="../src/assets/infoLogo.png"
           transition="scale-transition"
-          width="40"
+          width="160"
         />
 
-       <h2>Information</h2>
+       <!-- <h2>Information</h2> -->
       </div>
 
       <v-spacer></v-spacer>
