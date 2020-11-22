@@ -33,7 +33,7 @@
         max-width="290"
       >
         <v-card class="fon">
-          <v-card-title class="headline">ตามหา {{ transformer }} เจอเเล้ว</v-card-title>
+          <v-card-title class="headline">ตามหา {{ showname }} เจอเเล้ว</v-card-title>
           <v-card-actions>
             <v-btn
               color="green darken-1"
@@ -74,6 +74,7 @@ import axios from '../plugins/axios';
         // renderComponent: true,
         // loading: false,
         reload:true,
+        showname: ''
       }
     },
     
@@ -105,6 +106,7 @@ import axios from '../plugins/axios';
       clicked(c){
         this.dialog = true
         this.transformer = c.id
+        this.showname = c.name
       },
 
       full_image: function(c){   
@@ -125,6 +127,5 @@ import axios from '../plugins/axios';
   @import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
 .fon {
   font-family: 'Sarabun', sans-serif;
-  font-size: 1.5rem;
 }
 </style>
