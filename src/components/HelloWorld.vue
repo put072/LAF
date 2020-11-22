@@ -3,16 +3,18 @@
     <v-row class="show"><!-- v-if="renderComponent" -->
 
       <v-card v-for="(el,i) in data" :key="i" class="mx-auto ma-4 col-12 pa-0" max-width="344">
-        <v-img
-          height="250"
-          :src="el.image" 
-        ></v-img> 
+
+          <v-img @click="full_image(el)"
+            height="250"
+            :src="el.image"
+          ></v-img> 
 
         <v-card-text>
           <p class="text--primary">Name: <span class="ml-3">{{el.name}}</span></p>
           <p class="text--primary">Charactor:<span class="ml-3">{{el.charactor}}</span></p>
-          <p class="text--primary">Tel. <span class="ml-3">{{el.tell}}</span></p>
-          <p class="text--primary">Informant: <span class="ml-3">{{el.informant}}</span></p>
+          <a :href="`tel:${el.tel}`" data-rel="external" target="_black"><p class="text--primary">Tel. <span class="ml-3">{{el.tel}}</span></p></a>
+          <!-- <p @click="dial(data.phone)" class="text--primary">Tel. <span class="ml-3">{{el.tell}}</span></p> -->
+          <p class="text--primary">Informant: <span class="ml-3">{{el.informant}}</span></p> 
           <p class="text--primary">Location: <span class="ml-3">{{el.location_info}}</span></p>
         </v-card-text>
 
@@ -32,7 +34,7 @@
         max-width="290"
       >
         <v-card>
-          <v-card-title class="headline">Are you sure{{ transformer }} </v-card-title>
+          <v-card-title class="headline">Are you sure {{ transformer }} </v-card-title>
           <v-card-actions>
             <v-btn
               color="green darken-1"
@@ -68,6 +70,7 @@ import axios from '../plugins/axios';
         image:[],
         dialog: false,
         transformer: '',
+        fullimage: false,
         // renderComponent: true,
         // loading: false,
         reload:true,
@@ -102,7 +105,15 @@ import axios from '../plugins/axios';
       clicked(c){
         this.dialog = true
         this.transformer = c.id
-      }
+      },
+
+      full_image: function(c){   
+        window.open(c.full_image);    
+      },
+
+      // dial: function(number){
+      //   window.location ='tel:'+number;
+      // },
     },
 
     mounted(){
