@@ -10,7 +10,7 @@
           ></v-img> 
 
         <v-card-text class="fon">
-          <h2 class="text--primary pb-5"> <span class="ml-3">{{el.name}}</span></h2>
+          <h2 class="text--primary pb-5"> <span class="ml-3">Case: {{el.name}}</span></h2>
           <p class="text--primary">ลักษณะ:<span class="ml-3">{{el.charactor}}</span></p>
           <p class="text--primary">เบอร์โทรศัพท์ <a :href="`tel:${el.tel}`" data-rel="external" target="_black"><span class="ml-3">{{el.tel}}</span></a></p>
           <p class="text--primary">ข้อมูลเพิ่มเติม: <span class="ml-3">{{el.add_info}}</span></p>
