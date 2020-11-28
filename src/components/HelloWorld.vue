@@ -10,18 +10,19 @@
           ></v-img> 
 
         <v-card-text class="fon">
-          <p class="text--primary">ชื่อ นานสกุล: <span class="ml-3">{{el.name}}</span></p>
+          <h2 class="text--primary pb-5"> <span class="ml-3">{{el.name}}</span></h2>
           <p class="text--primary">ลักษณะ:<span class="ml-3">{{el.charactor}}</span></p>
           <p class="text--primary">เบอร์โทรศัพท์ <a :href="`tel:${el.tel}`" data-rel="external" target="_black"><span class="ml-3">{{el.tel}}</span></a></p>
-          <p class="text--primary">ข้อมูลเพิ่มเติม: <span class="ml-3">{{el.informant}}</span></p>
+          <p class="text--primary">ข้อมูลเพิ่มเติม: <span class="ml-3">{{el.add_info}}</span></p>
           <p class="text--primary">จุดรับเรื่อง: <span class="ml-3">{{el.location_info}}</span></p>
         </v-card-text>
 
-        <v-card-actions class="fon">
+        <v-card-actions class="fon d-flex flex-row-reverse">
           <v-btn
             style="background:#ff97b7"
             dark
             @click="clicked(el)"
+            
           >
             เสร็จ
           </v-btn>
@@ -33,11 +34,11 @@
         max-width="290"
       >
         <v-card class="fon">
-          <v-card-title class="headline">ตามหา {{ showname }} เจอเเล้ว</v-card-title>
-          <v-card-actions>
+          <p class="pt-5 pl-5">ตามหา {{ showname }} เจอเเล้ว</p>
+          <v-card-actions class="d-flex justify-end">
             <v-btn
-              color="green darken-1"
-              text
+              style="background:#0096c7"
+              dark
               @click="clickbtn()"
               
             >
@@ -45,8 +46,8 @@
             </v-btn>
 
             <v-btn
-              color="green darken-1"
-              text
+              style="background:#ff97b7"
+              dark
               @click="dialog = false"
             >
               ไม่ใช่
