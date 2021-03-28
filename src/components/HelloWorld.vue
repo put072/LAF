@@ -10,10 +10,13 @@
           ></v-img> 
 
         <v-card-text class="fon">
-          <h2 class="text--primary pb-5"> <span class="ml-3">Case {{el.id}}: {{el.name}}</span></h2>
+          <h2 class="text--primary pb-5"> <span class="ml-3">Case: {{el.name}}</span></h2>
+          <p class="text--primary">ประเภท:<span class="ml-3">{{el.type}}</span></p>
           <p class="text--primary">ลักษณะ:<span class="ml-3">{{el.charactor}}</span></p>
+          <p class="text--primary">ชื่อผู้แจ้ง:<span class="ml-3">{{el.informant}}</span></p>
           <p class="text--primary">เบอร์โทรศัพท์ <a :href="`tel:${el.tel}`" data-rel="external" target="_black"><span class="ml-3">{{el.tel}}</span></a></p>
           <p class="text--primary">ข้อมูลเพิ่มเติม: <span class="ml-3">{{el.add_info}}</span></p>
+          <p class="text--primary">ผู้รับเรื่อง: <span class="ml-3">{{el.officer}}</span></p>
           <p class="text--primary">จุดรับเรื่อง: <span class="ml-3">{{el.location_info}}</span></p>
         </v-card-text>
 
