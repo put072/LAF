@@ -17,18 +17,12 @@
           transition="scale-transition"
           width="160"
         />
-<<<<<<< HEAD
-=======
-        
-
-      
->>>>>>> fb019da40251355b19269e215dcbcdc4e03e84d6
       </div>
 
       <v-spacer></v-spacer>
 
       <v-btn
-        href="https://google.com"
+        to="/table"
         target="_blank"
         text
       >
@@ -38,7 +32,7 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <router-view></router-view>
     </v-main>
   </v-app>
   
@@ -46,14 +40,9 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
 
 export default {
   name: 'App',
-
-  components: {
-    HelloWorld,
-  },
 
   data: () => ({
     //
