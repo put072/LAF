@@ -65,30 +65,6 @@ import axios from '../plugins/axios';
         })
         .catch(err => console.log(err))
       },
-
-    //   clickbtn(){
-    //     let id = this.transformer
-    //     this.dialog = false
-    //     let json = {done:"1"}   
-    //       axios.patchData(`/tabs/updateTable/id/${id}`,json)
-    //     .then(res=>{
-    //       console.log(res)
-    //       window.location.reload()
-    //     })
-    //     .catch(err => console.log(err))
-        
-    //   },
-
-    //   clicked(c){
-    //     this.dialog = true
-    //     this.transformer = c.id
-    //     this.showname = c.name
-    //   },
-
-    //   full_image: function(c){   
-    //     window.open(c.full_image);    
-    //   },
-
     },
 
     mounted(){
