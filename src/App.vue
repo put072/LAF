@@ -4,6 +4,7 @@
       app
       dark
       src="../src/assets/bgnb1.jpg"
+      
     >
       <div class="d-flex align-center">
         <v-img
@@ -14,8 +15,6 @@
           transition="scale-transition"
           width="160"
         />
-
-       <!-- <h2>Information</h2> -->
       </div>
 
       <v-spacer></v-spacer>

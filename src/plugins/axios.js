@@ -13,7 +13,7 @@ export default {
         url += action
         return instance.get(url)
     },
-     patchData(action,body) {
+    patchData(action,body) {
         let url = `${baseURL}`
         url += action
         return instance.patch(url,body)
