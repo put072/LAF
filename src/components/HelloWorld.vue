@@ -79,17 +79,20 @@
     <v-snackbar
       v-model="snackbar"
       :multi-line="multiLine"
-      color="purple darken-1"
+      color="purple lighten-4"
+      
+      
       
     >
       {{text}}
 
       <template v-slot:action="{ attrs }">
         <v-btn
-          color="white"
+          color="pink lighten-2"
           text
           v-bind="attrs"
           @click="snackbar = false"
+          style="background:#ffffff"
         >
           Close
         </v-btn>
