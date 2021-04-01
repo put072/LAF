@@ -1,6 +1,22 @@
 <template>
-  <v-container> 
-    <v-row class="show"><!-- v-if="renderComponent" -->
+  <v-container class="fon"> 
+
+    <div class="d-flex justify-center mb-2 mt-14 ">
+      <h1 style="font-size: 50px;" class="d-flex ">Information</h1>
+    </div>
+    <div class="d-flex justify-center">
+      <p class="d-flex mb-0">ติดต่อสอบถาม</p>
+    </div>
+    <div class="d-flex justify-center">
+      <p class="d-flex mb-0">เก็บของได้ - เเจ้งของหาย - แจ้งคนพลัดหลง</p>
+    </div>
+    <div class="d-flex justify-center">
+      <p class="d-flex mb-16">- ญาติตามหาคนพลัดหลง</p>
+    </div>
+    
+
+    <v-row class="show mt-6"><!-- v-if="renderComponent" -->
+    
 
       <v-card v-for="(el,i) in data" :key="i" class="mx-auto ma-4 col-12 pa-0" max-width="344">
 
@@ -59,6 +75,27 @@
         </v-card>
       </v-dialog>
     </v-row>
+
+    <v-snackbar
+      v-model="snackbar"
+      :multi-line="multiLine"
+      color="purple darken-1"
+      
+    >
+      {{text}}
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="white"
+          text
+          v-bind="attrs"
+          @click="snackbar = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
+
     
   </v-container>
 </template>
@@ -78,7 +115,10 @@ import axios from '../plugins/axios';
         // renderComponent: true,
         // loading: false,
         reload:true,
-        showname: ''
+        showname: '',
+        snackbar: true,
+        multiline: true,
+        text: 'เว็บไซต์สำหรับเจ้าหน้าที่กองติดต่อสอบถามเพื่อการปฏิสันถารดูแลผู้ที่มาร่วมบุญให้ปรื้มตลอดทั้งวัน'
       }
     },
     
@@ -132,4 +172,21 @@ import axios from '../plugins/axios';
 .fon {
   font-family: 'Sarabun', sans-serif;
 }
+
+.banner {
+  display: flex;
+  justify-content: space-around;
+  background-color:#c77dff;
+  color:#ffffff;
+  padding:1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.cross {
+  position: absolute;
+  cursor: pointer;
+}
+
+
 </style>

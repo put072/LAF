@@ -1,5 +1,7 @@
 <template>
-  <v-app style="background:#9bf6ff;">
+
+  <!-- <v-app style="background:#9bf6ff;" class="fon"> -->
+  <v-app style="background:#ffffff;" class="fon">
     <v-app-bar
       app
       dark
@@ -15,24 +17,32 @@
           transition="scale-transition"
           width="160"
         />
+<<<<<<< HEAD
+=======
+        
+
+      
+>>>>>>> fb019da40251355b19269e215dcbcdc4e03e84d6
       </div>
 
       <v-spacer></v-spacer>
 
-      <!-- <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+      <v-btn
+        href="https://google.com"
         target="_blank"
         text
       >
-        <span class="mr-2">Latest Release</span>
+        <span class="mr-2">ตารางเคสทั้งหมด</span>
         <v-icon>open_in_new</v-icon>
-      </v-btn> -->
+      </v-btn>
     </v-app-bar>
 
     <v-main>
       <HelloWorld/>
     </v-main>
   </v-app>
+  
+
 </template>
 
 <script>
@@ -54,5 +64,11 @@ export default {
 <style>
 .bg {
   background: #ffddc1;
+}
+</style>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
+.fon {
+  font-family: 'Sarabun', sans-serif;
 }
 </style>
