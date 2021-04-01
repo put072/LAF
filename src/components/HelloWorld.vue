@@ -13,11 +13,9 @@
     <div class="d-flex justify-center">
       <p class="d-flex mb-16">- ญาติตามหาคนพลัดหลง</p>
     </div>
-    
 
     <v-row class="show mt-6"><!-- v-if="renderComponent" -->
     
-
       <v-card v-for="(el,i) in data" :key="i" class="mx-auto ma-4 col-12 pa-0" max-width="344">
 
           <v-img @click="full_image(el)"
@@ -41,7 +39,6 @@
             style="background:#ff97b7"
             dark
             @click="clicked(el)"
-            
           >
             เสร็จ
           </v-btn>
@@ -120,8 +117,7 @@ import axios from '../plugins/axios';
         reload:true,
         showname: '',
         snackbar: true,
-        multiline: true,
-        text: 'เว็บไซต์สำหรับเจ้าหน้าที่กองติดต่อสอบถามเพื่อการปฏิสันถารดูแลผู้ที่มาร่วมบุญให้ปรื้มตลอดทั้งวัน'
+        text: 'เว็บไซต์สำหรับเจ้าหน้าที่กองติดต่อสอบถามเพื่อการปฏิสันถารดูแลผู้ที่มาร่วมบุญให้ปลื้มตลอดทั้งวัน'
       }
     },
     
@@ -170,6 +166,7 @@ import axios from '../plugins/axios';
     }
   }
 </script>
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
 .fon {
@@ -190,6 +187,4 @@ import axios from '../plugins/axios';
   position: absolute;
   cursor: pointer;
 }
-
-
 </style>

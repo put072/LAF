@@ -1,14 +1,15 @@
 <template>
-
   <!-- <v-app style="background:#9bf6ff;" class="fon"> -->
   <v-app style="background:#ffffff;" class="fon">
     <v-app-bar
       app
       dark
       src="../src/assets/bgnb1.jpg"
+      
     >
       <div class="d-flex align-center">
         <v-img
+          to="/home"
           alt="Vuetify Logo"
           class="shrink"
           contain
@@ -16,15 +17,12 @@
           transition="scale-transition"
           width="160"
         />
-        
-
-      
       </div>
 
       <v-spacer></v-spacer>
 
       <v-btn
-        href="https://google.com"
+        to="/table"
         target="_blank"
         text
       >
@@ -34,7 +32,7 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <router-view></router-view>
     </v-main>
   </v-app>
   
@@ -42,14 +40,9 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
 
 export default {
   name: 'App',
-
-  components: {
-    HelloWorld,
-  },
 
   data: () => ({
     //
