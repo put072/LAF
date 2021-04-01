@@ -13,7 +13,7 @@
     <div class="d-flex justify-center">
       <p class="d-flex mb-16">- ญาติตามหาคนพลัดหลง</p>
     </div>
-    
+
     <v-row class="show mt-6"><!-- v-if="renderComponent" -->
     
       <v-card v-for="(el,i) in data" :key="i" class="mx-auto ma-4 col-12 pa-0" max-width="344">

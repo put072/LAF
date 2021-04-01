@@ -1,5 +1,4 @@
 <template>
-
   <!-- <v-app style="background:#9bf6ff;" class="fon"> -->
   <v-app style="background:#ffffff;" class="fon">
     <v-app-bar
@@ -10,6 +9,7 @@
     >
       <div class="d-flex align-center">
         <v-img
+          to="/home"
           alt="Vuetify Logo"
           class="shrink"
           contain

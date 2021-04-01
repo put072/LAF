@@ -1,28 +1,98 @@
 <template>
+    <div class="table container ">
 
-    <div class="table">
-        <v-simple-table>
+        <div class="d-flex justify-center mb-2 mt-14 ">
+            <h1 style="font-size: 50px;" class="d-flex ">Information</h1>
+        </div>
+        <div class="d-flex justify-center">
+            <p class="d-flex mb-0">ตารางเคสทั้งหมด</p>
+        </div>
+
+        <v-simple-table class="mt-10">
             <template v-slot:default>
                 <thead>
                     <tr>
                     <th class="text-left">
-                        Name
+                        ID
                     </th>
                     <th class="text-left">
-                        Calories
+                        ประเภท
+                    </th>
+                    <th class="text-left">
+                        Case
+                    </th>
+                    <th class="text-left">
+                        ชื่อผู้แจ้ง
+                    </th>
+                    <th class="text-left">
+                        เบอร์โทรศัพท์
                     </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr
-                    v-for="item in desserts"
-                    :key="item.name"
-                    >
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.calories }}</td>
+                <tbody >
+                    <tr v-for="(el,i) in data" :key="i">
+                    <td>{{ el.id }}</td>
+                    <td>{{ el.type }}</td>
+                    <td>{{ el.name }}</td>
+                    <td>{{ el.informant }}</td>
+                    <td>{{ el.tel }}</td>
                     </tr>
                 </tbody>
             </template>
         </v-simple-table>
     </div >
 </template>
+
+<script>
+import axios from '../plugins/axios';
+  export default {
+    name: '',
+     
+    data(){
+      return {
+        data: [],
+      }
+    },
+    
+    computed:{ 
+    },
+
+    methods: {
+      callapi(){
+         axios.getData(`/status/TRUE`)   
+        .then(res=>{
+          this.data = res.data
+        })
+        .catch(err => console.log(err))
+      },
+
+    //   clickbtn(){
+    //     let id = this.transformer
+    //     this.dialog = false
+    //     let json = {done:"1"}   
+    //       axios.patchData(`/tabs/updateTable/id/${id}`,json)
+    //     .then(res=>{
+    //       console.log(res)
+    //       window.location.reload()
+    //     })
+    //     .catch(err => console.log(err))
+        
+    //   },
+
+    //   clicked(c){
+    //     this.dialog = true
+    //     this.transformer = c.id
+    //     this.showname = c.name
+    //   },
+
+    //   full_image: function(c){   
+    //     window.open(c.full_image);    
+    //   },
+
+    },
+
+    mounted(){
+      this.callapi()
+    }
+  }
+</script>
