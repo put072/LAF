@@ -8,26 +8,27 @@
       
     >
       <div class="d-flex align-center">
-        <v-img
-          to="/home"
-          alt="Vuetify Logo"
-          class="shrink"
-          contain
-          src="../src/assets/infoLogo.png"
-          transition="scale-transition"
-          width="160"
-        />
+        <router-link to="/">
+         <v-img
+            alt="Vuetify Logo"
+            class="shrink"
+            contain
+            src="../src/assets/infoLogo.png"
+            transition="scale-transition"
+            width="160"
+          />
+        </router-link>
+        
       </div>
 
       <v-spacer></v-spacer>
 
       <v-btn
-        to="/table"
-        target="_blank"
+        :to="taBle"
         text
       >
-        <span class="mr-2">ตารางเคสทั้งหมด</span>
-        <v-icon>open_in_new</v-icon>
+        <span class="mr-2"> {{Nroute}} </span>
+        <v-icon> {{Npage}} </v-icon>
       </v-btn>
     </v-app-bar>
 
@@ -47,7 +48,41 @@ export default {
   data: () => ({
     //
   }),
+
+  computed:{ 
+    checkroute () {
+      return this.$route.name
+    },
+    ifhome () {
+      return this.checkroute === "Home"
+    },
+    iftable () {
+      return this.checkroute === "Table"
+    },
+    taBle () {
+      if (this.$route.name === "Table") {
+        return '/'
+      }
+        return '/table'
+    },
+    Nroute () {
+      if (this.$route.name === "Table") {
+        return 'หน้าเเรก'
+      }
+        return 'เคสทั้งหมด'
+    },
+    Npage () {
+      if (this.$route.name === "Table") {
+        return 'home'
+      }
+        return 'list'
+    },
+
+  },
 };
+
+
+
 </script>
 
 <style>
