@@ -109,8 +109,6 @@ import axios from '../plugins/axios';
         dialog: false,
         transformer: '',
         fullimage: false,
-        // renderComponent: true,
-        // loading: false,
         reload:true,
         showname: '',
         snackbar: true,
