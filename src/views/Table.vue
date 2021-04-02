@@ -12,30 +12,30 @@
             <template v-slot:default>
                 <thead>
                     <tr>
-                    <th class="text-left">
-                        ID
-                    </th>
-                    <th class="text-left">
-                        ประเภท
-                    </th>
-                    <th class="text-left">
-                        Case
-                    </th>
-                    <th class="text-left">
-                        ชื่อผู้แจ้ง
-                    </th>
-                    <th class="text-left">
-                        เบอร์โทรศัพท์
-                    </th>
+                      <th class="text-left">
+                          ID
+                      </th>
+                      <th class="text-left">
+                          ประเภท
+                      </th>
+                      <th class="text-left">
+                          Case
+                      </th>
+                      <th class="text-left">
+                          ชื่อผู้แจ้ง
+                      </th>
+                      <!-- <th class="text-left">
+                          เบอร์โทรศัพท์
+                      </th> -->
                     </tr>
                 </thead>
                 <tbody >
                     <tr v-for="(el,i) in data" :key="i">
-                    <td>{{ el.id }}</td>
-                    <td>{{ el.type }}</td>
-                    <td>{{ el.name }}</td>
-                    <td>{{ el.informant }}</td>
-                    <td>{{ el.tel }}</td>
+                      <td>{{ el.id }}</td>
+                      <td>{{ el.type }}</td>
+                      <td>{{ el.name }}</td>
+                      <td>{{ el.informant }}</td>
+                      <!-- <td>{{ el.tel }}</td> -->
                     </tr>
                 </tbody>
             </template>
