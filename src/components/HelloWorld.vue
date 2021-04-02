@@ -77,9 +77,6 @@
       v-model="snackbar"
       :multi-line="multiLine"
       color="purple lighten-4"
-      
-      
-      
     >
       {{text}}
 
@@ -155,10 +152,6 @@ import axios from '../plugins/axios';
       full_image: function(c){   
         window.open(c.full_image);    
       },
-
-      // dial: function(number){
-      //   window.location ='tel:'+number;
-      // },
     },
 
     mounted(){
