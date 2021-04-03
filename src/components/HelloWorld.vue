@@ -13,56 +13,32 @@
     <div class="d-flex justify-center">
       <p class="d-flex mb-16">- ญาติตามหาคนพลัดหลง</p>
     </div>
-    <v-form>
-      <v-container>
-        <v-row>
-          <v-col
-          cols="11"
-          >
-          <v-text-field
-            v-model="Case"
-            label="ค้นหาเคส"
-            solo
-          ></v-text-field>
-          <v-text
-            
-          >
-          {{ Case }}
-          </v-text>
-        </v-col>
-        <v-col
-          cols="1"
-        >
-          <v-btn 
-            dark
-            color="blue lighten-1"
-            @click="caseFilter(Case)"
-          >
-            Search
-          </v-btn>
-        </v-col>
-        </v-row>
-      </v-container>
-    </v-form>
+
 
     <template>
       <v-form>
         <v-container>
           <v-row>
             <v-col
-              cols="10"
-              sm="10"
-              md="10"
+              cols="8"
+
             >
               <v-text-field
                 :label="label_search"
                 v-model="val_search"
                 clearable
+                solo
                 @click:clear="clearFilter"
               ></v-text-field>
             </v-col>
             <v-col>
-              <v-btn @click="clicksearch(val_search)">search</v-btn>
+              <v-btn @click="clicksearch(val_search)"
+                style="background:#ff97b7"
+                dark
+                class="m-0"
+              >
+                Search
+              </v-btn>
             </v-col>
           </v-row>
         </v-container>
