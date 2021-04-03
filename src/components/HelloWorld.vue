@@ -108,9 +108,6 @@
       v-model="snackbar"
       :multi-line="multiLine"
       color="purple lighten-4"
-      
-      
-      
     >
       {{text}}
 
@@ -143,8 +140,6 @@ import axios from '../plugins/axios';
         dialog: false,
         transformer: '',
         fullimage: false,
-        // renderComponent: true,
-        // loading: false,
         reload:true,
         showname: '',
         snackbar: true,
@@ -189,6 +184,7 @@ import axios from '../plugins/axios';
       full_image: function(c){   
         window.open(c.full_image);    
       },
+<<<<<<< HEAD
 
       search(input){
         if(input.length!==0){
@@ -204,6 +200,8 @@ import axios from '../plugins/axios';
       // dial: function(number){
       //   window.location ='tel:'+number;
       // },
+=======
+>>>>>>> 6262a8bf8d978a28a52d5d7f75dc02cb922efe9a
     },
 
     mounted(){
