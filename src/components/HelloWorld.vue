@@ -28,6 +28,7 @@
                 v-model="val_search"
                 clearable
                 solo
+                v-on:keydown.enter.prevent="clicksearch(val_search)"
                 @click:clear="clearFilter"
               ></v-text-field>
             </v-col>
