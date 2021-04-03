@@ -69,7 +69,7 @@ export default {
       if (this.$route.name === "Table") {
         return 'หน้าเเรก'
       }
-        return 'เคสทั้งหมด'
+        return 'เคสที่เสร็จเเล้ว'
     },
     Npage () {
       if (this.$route.name === "Table") {
