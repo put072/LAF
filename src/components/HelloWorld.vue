@@ -45,9 +45,33 @@
       </v-container>
     </v-form>
 
+    <template>
+      <v-form>
+        <v-container>
+          <v-row>
+            <v-col
+              cols="10"
+              sm="10"
+              md="10"
+            >
+              <v-text-field
+                :label="label_search"
+                v-model="val_search"
+                clearable
+                @click:clear="clearFilter"
+              ></v-text-field>
+            </v-col>
+            <v-col>
+              <v-btn @click="clicksearch(val_search)">search</v-btn>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-form>
+    </template>
+
     <v-row class="show mt-6"><!-- v-if="renderComponent" -->
     
-      <v-card v-for="(el,i) in data" :key="i" class="mx-auto ma-4 col-12 pa-0" max-width="344">
+      <v-card v-for="(el,i) in check_filter" :key="i" class="mx-auto ma-4 col-12 pa-0" max-width="344">
 
           <v-img @click="full_image(el)"
             height="250"
@@ -136,7 +160,10 @@ import axios from '../plugins/axios';
     data(){
       return {
         data: [],
+        dataFilter: [],
+        label_search:"ค้นหาเคส",
         image:[],
+        val_search:"",
         dialog: false,
         transformer: '',
         fullimage: false,
@@ -147,12 +174,14 @@ import axios from '../plugins/axios';
       }
     },
     
-    computed:{
-      caseFilter () {
-        return this
-      },
+    computed:{ 
+      check_filter(){
+        if(this.dataFilter.length>0){
+          return this.dataFilter
+        }
+        return this.data
+      }
     },
-
     methods: {
       callapi(){
          axios.getData(`/status/FALSE`)   
@@ -184,21 +213,18 @@ import axios from '../plugins/axios';
       full_image: function(c){   
         window.open(c.full_image);    
       },
-
-      search(input){
+      clicksearch(input){
         if(input.length!==0){
-          // alert(input)
-          // let lll = this.data.filter(el => el.name === input)
-          // console.log(lll[0])
-        } else {
+          let res = this.data.filter(el => el.name === input)
+          this.dataFilter = res
+        }else{
           this.label_search='กรุณาใส่คำที่่ต้องการค้นหา'
         }
-
+      },
+      clearFilter(){
+          this.dataFilter = []
+          this.label_search="ค้นหาเคส"
       }
-
-      // dial: function(number){
-      //   window.location ='tel:'+number;
-      // },
     },
 
     mounted(){
