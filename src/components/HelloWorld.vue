@@ -14,27 +14,41 @@
       <p class="d-flex mb-16">- ญาติตามหาคนพลัดหลง</p>
     </div>
 
+
     <template>
       <v-form>
-        <v-container>
-          <v-row>
-            <v-col
-              cols="10"
-              sm="10"
-              md="10"
+        <v-row>
+          <v-col
+            cols="10"
+            class="d-flex justify-center"
+          >
+            <v-text-field
+              :label="label_search"
+              v-model="val_search"
+              clearable
+              solo
+              dark
+              background-color="purple lighten-4"
+              v-on:keydown.enter.prevent="clicksearch(val_search)"
+              @click:clear="clearFilter"
+              class="pa-0 mt-2"
+            ></v-text-field>
+          </v-col>
+          <v-col 
+            cols="2" 
+            class="d-flex justify-center"
+          >
+            <v-btn @click="clicksearch(val_search)"
+              style="background:#ff97b7"
+              dark
+              fab
+              class="pa-0 d-flex "
             >
-              <v-text-field
-                :label="label_search"
-                v-model="val_search"
-                clearable
-                @click:clear="clearFilter"
-              ></v-text-field>
-            </v-col>
-            <v-col>
-              <v-btn @click="clicksearch(val_search)">search</v-btn>
-            </v-col>
-          </v-row>
-        </v-container>
+              <v-icon>search</v-icon>
+              
+            </v-btn>
+          </v-col>
+        </v-row>
       </v-form>
     </template>
 
@@ -130,7 +144,7 @@ import axios from '../plugins/axios';
       return {
         data: [],
         dataFilter: [],
-        label_search:"ค้นหาเคส",
+        label_search:"ช่องค้นหาเคส",
         image:[],
         val_search:"",
         dialog: false,
@@ -184,7 +198,7 @@ import axios from '../plugins/axios';
       },
       clicksearch(input){
         if(input.length!==0){
-          let res = this.data.filter(el => el.name === input)
+          let res = this.data.filter(el => el.name.toLowerCase().includes(input.toLowerCase()))
           this.dataFilter = res
         }else{
           this.label_search='กรุณาใส่คำที่่ต้องการค้นหา'
