@@ -17,41 +17,38 @@
 
     <template>
       <v-form>
-        <v-container>
-          <v-row>
-            <v-col
-              cols="8"
-
+        <v-row>
+          <v-col
+            cols="10"
+            class="d-flex justify-center"
+          >
+            <v-text-field
+              :label="label_search"
+              v-model="val_search"
+              clearable
+              solo
+              dark
+              background-color="purple lighten-4"
+              v-on:keydown.enter.prevent="clicksearch(val_search)"
+              @click:clear="clearFilter"
+              class="pa-0 mt-2"
+            ></v-text-field>
+          </v-col>
+          <v-col 
+            cols="2" 
+            class="d-flex justify-center"
+          >
+            <v-btn @click="clicksearch(val_search)"
+              style="background:#ff97b7"
+              dark
+              fab
+              class="pa-0 d-flex "
             >
-              <v-text-field
-                :label="label_search"
-                v-model="val_search"
-                clearable
-                solo
-                v-on:keydown.enter.prevent="clicksearch(val_search)"
-                @click:clear="clearFilter"
-              ></v-text-field>
-            </v-col>
-            <v-col>
-              <v-btn @click="clicksearch(val_search)"
-                style="background:#ff97b7"
-                dark
-                text
-                class="mr-2"
-              >
-                <v-icon>search</v-icon> 
-              </v-btn>
-              <!-- <v-btn @click="clicksearch(val_search)"
-                style="background:#ff97b7"
-                dark
-                text
-                class="m-0"
-              >
-                <v-icon>sort</v-icon> 
-              </v-btn> -->
-            </v-col>
-          </v-row>
-        </v-container>
+              <v-icon>search</v-icon>
+              
+            </v-btn>
+          </v-col>
+        </v-row>
       </v-form>
     </template>
 
@@ -147,7 +144,7 @@ import axios from '../plugins/axios';
       return {
         data: [],
         dataFilter: [],
-        label_search:"ค้นหาเคส",
+        label_search:"ช่องค้นหาเคส",
         image:[],
         val_search:"",
         dialog: false,
