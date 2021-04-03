@@ -131,7 +131,7 @@
 <script>
 import axios from '../plugins/axios';
   export default {
-    // name: '',
+    name: '',
      
     data(){
       return {
@@ -191,7 +191,7 @@ import axios from '../plugins/axios';
       },
       clicksearch(input){
         if(input.length!==0){
-          let res = this.data.filter(el => el.name === input)
+          let res = this.data.filter(el => el.name.toLowerCase().includes(input.toLowerCase()))
           this.dataFilter = res
         }else{
           this.label_search='กรุณาใส่คำที่่ต้องการค้นหา'
