@@ -13,6 +13,37 @@
     <div class="d-flex justify-center">
       <p class="d-flex mb-16">- ญาติตามหาคนพลัดหลง</p>
     </div>
+    <v-form>
+      <v-container>
+        <v-row>
+          <v-col
+          cols="11"
+          >
+          <v-text-field
+            v-model="Case"
+            label="ค้นหาเคส"
+            solo
+          ></v-text-field>
+          <v-text
+            
+          >
+          {{ Case }}
+          </v-text>
+        </v-col>
+        <v-col
+          cols="1"
+        >
+          <v-btn 
+            dark
+            color="blue lighten-1"
+            @click="caseFilter(Case)"
+          >
+            Search
+          </v-btn>
+        </v-col>
+        </v-row>
+      </v-container>
+    </v-form>
 
     <v-row class="show mt-6"><!-- v-if="renderComponent" -->
     
@@ -103,7 +134,7 @@
 <script>
 import axios from '../plugins/axios';
   export default {
-    name: '',
+    // name: '',
      
     data(){
       return {
@@ -121,7 +152,10 @@ import axios from '../plugins/axios';
       }
     },
     
-    computed:{ 
+    computed:{
+      caseFilter () {
+        return this
+      },
     },
 
     methods: {
@@ -155,6 +189,17 @@ import axios from '../plugins/axios';
       full_image: function(c){   
         window.open(c.full_image);    
       },
+
+      search(input){
+        if(input.length!==0){
+          // alert(input)
+          // let lll = this.data.filter(el => el.name === input)
+          // console.log(lll[0])
+        } else {
+          this.label_search='กรุณาใส่คำที่่ต้องการค้นหา'
+        }
+
+      }
 
       // dial: function(number){
       //   window.location ='tel:'+number;
