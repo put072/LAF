@@ -36,10 +36,19 @@
               <v-btn @click="clicksearch(val_search)"
                 style="background:#ff97b7"
                 dark
+                text
+                class="mr-2"
+              >
+                <v-icon>search</v-icon> 
+              </v-btn>
+              <!-- <v-btn @click="clicksearch(val_search)"
+                style="background:#ff97b7"
+                dark
+                text
                 class="m-0"
               >
-                Search
-              </v-btn>
+                <v-icon>sort</v-icon> 
+              </v-btn> -->
             </v-col>
           </v-row>
         </v-container>
