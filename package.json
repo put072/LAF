@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "deploy": "yarn build && firebase deploy --only hosting",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
